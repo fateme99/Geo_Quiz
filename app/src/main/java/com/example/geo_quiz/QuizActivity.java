@@ -28,14 +28,17 @@ public class QuizActivity extends AppCompatActivity {
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                checked(false);
             }
         });
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                checked(true);
             }
         });
+    }
+    public void checked(boolean pressedUser){
+
     }
 }
