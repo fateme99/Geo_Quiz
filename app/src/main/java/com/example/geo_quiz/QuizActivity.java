@@ -1,5 +1,6 @@
 package com.example.geo_quiz;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity {
 
+    public static final String CURRENT_INDEX = "mCurrentIndex";
+    public static final String SCORE_KEY = "score_key";
+    public static final String NUM_OF_ANSWER_KEY = "numOfAnswer_key";
     private ImageButton mFalseButton,mTrueButton,mNextBtn,mPrevBtn,mDoubleNext,mDoublePrev,mResetGame;
     private TextView mQuestionTextView,mScoreTextView,mFinalScore;
     private int mCurrentIndex=0 , mScore =0,mNumOfAnswers=0;
@@ -28,12 +32,29 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            mScore=savedInstanceState.getInt(SCORE_KEY,0);
+            mNumOfAnswers=savedInstanceState.getInt(NUM_OF_ANSWER_KEY,0);
+            mCurrentIndex = savedInstanceState.getInt(CURRENT_INDEX, 0);
+        }
         setContentView(R.layout.activity_quiz);
+
         findViews();
         setListeners();
         setQuestionText(mCurrentIndex);
         setScore();
+
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(CURRENT_INDEX,mCurrentIndex);
+        outState.putInt(SCORE_KEY,mScore);
+        outState.putInt(NUM_OF_ANSWER_KEY,mNumOfAnswers);
+
+    }
+
     public void findViews(){
         mFalseButton=findViewById(R.id.false_btn);
         mTrueButton=findViewById(R.id.true_btn);

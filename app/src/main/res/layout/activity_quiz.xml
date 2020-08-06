@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
-                    android:background="@drawable/ic_close"
+                    android:src="@drawable/ic_close"
                     android:text="@string/btn_false_text"
                     android:textSize="24sp"
                     android:textStyle="bold">
