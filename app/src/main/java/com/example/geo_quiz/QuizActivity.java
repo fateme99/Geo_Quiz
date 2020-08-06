@@ -11,11 +11,26 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 public class QuizActivity extends AppCompatActivity {
 
+    public static String mBankString="";
     public static final String CURRENT_INDEX = "mCurrentIndex";
     public static final String SCORE_KEY = "score_key";
     public static final String NUM_OF_ANSWER_KEY = "numOfAnswer_key";
+    public static final String BANK_KEY = "bank_key";
     private ImageButton mFalseButton,mTrueButton,mNextBtn,mPrevBtn,mDoubleNext,mDoublePrev,mResetGame;
     private TextView mQuestionTextView,mScoreTextView,mFinalScore;
     private int mCurrentIndex=0 , mScore =0,mNumOfAnswers=0;
@@ -33,6 +48,18 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null) {
+
+            mQuestionsBank= (Question[]) savedInstanceState.getSerializable(BANK_KEY);
+
+            /*String[] questions=savedInstanceState.getStringArray(BANK_KEY);
+            for (int i = 0; i <questions.length ; i++) {
+                JsonParser parser = new JsonParser();
+                JsonElement mJson =  parser.parse(questions[i]);
+                Gson gson = new Gson();
+                Question object = gson.fromJson(mJson, Question.class);
+                mQuestionsBank[i]=object;
+            }*/
+
             mScore=savedInstanceState.getInt(SCORE_KEY,0);
             mNumOfAnswers=savedInstanceState.getInt(NUM_OF_ANSWER_KEY,0);
             mCurrentIndex = savedInstanceState.getInt(CURRENT_INDEX, 0);
@@ -43,7 +70,7 @@ public class QuizActivity extends AppCompatActivity {
         setListeners();
         setQuestionText(mCurrentIndex);
         setScore();
-
+        theEnd();
     }
 
     @Override
@@ -52,6 +79,17 @@ public class QuizActivity extends AppCompatActivity {
         outState.putInt(CURRENT_INDEX,mCurrentIndex);
         outState.putInt(SCORE_KEY,mScore);
         outState.putInt(NUM_OF_ANSWER_KEY,mNumOfAnswers);
+        Serializable serializable=mQuestionsBank;
+        outState.putSerializable(BANK_KEY,serializable);
+        /*Gson gson=new Gson();
+        String[] questions = new String[mQuestionsBank.length];
+        for (int i = 0; i <mQuestionsBank.length ; i++) {
+            String bankQuestion=gson.toJson(mQuestionsBank);
+            questions[i]=bankQuestion;
+        }
+
+        outState.putStringArray(BANK_KEY,questions);*/
+
 
     }
 
@@ -161,12 +199,17 @@ public class QuizActivity extends AppCompatActivity {
             toast.show();
             mQuestionTextView.setTextColor(getResources().getColor(R.color.false_toast_bg));
         }
+        theEnd();
+    }
+
+    private void theEnd() {
         if (mNumOfAnswers==mQuestionsBank.length){
             mMainLayout.setVisibility(View.GONE);
             mScoreLayour.setVisibility(View.VISIBLE);
             mFinalScore.setText(mQuestionsBank.length+" / "+mScore  +getString(R.string.score_text));
         }
     }
+
     public void setQuestionText(int index){
         setScore();
         if (mQuestionsBank[(index+mQuestionsBank.length)%mQuestionsBank.length].isMdisable()){

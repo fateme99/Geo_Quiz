@@ -1,6 +1,8 @@
 package com.example.geo_quiz;
 
-public class Question {
+import java.io.Serializable;
+
+public class Question implements Serializable {
     private int mQuestionResId;
     private boolean mIsAnswerTrue;
     private boolean mdisable;

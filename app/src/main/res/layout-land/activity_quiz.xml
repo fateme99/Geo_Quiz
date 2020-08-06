@@ -9,108 +9,117 @@
         android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
 
-        <TextView
-            android:id="@+id/score_text"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_marginTop="50dp"
-            android:gravity="center_horizontal|top"
-            android:textSize="24sp">
+            android:layout_height="match_parent">
 
-        </TextView>
+            <TextView
+                android:id="@+id/score_text"
+                android:layout_width="wrap_content"
+                android:layout_height="59dp"
+                android:layout_gravity="center_horizontal|top|left"
+                android:layout_marginTop="40dp"
+                android:gravity="center_horizontal|top"
+                android:textSize="24sp">
+
+            </TextView>
 
 
-        <TextView
-            android:id="@+id/question_text"
+            <TextView
+                android:id="@+id/question_text"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
-            android:text=""
-            android:textColor="@android:color/background_dark"
-            android:textSize="24sp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/false_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:src="@drawable/ic_close"
-                android:text="@string/btn_false_text"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
+                android:text=""
+                android:textColor="@android:color/background_dark"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/false_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_close"
+                    android:text="@string/btn_false_text"
+                    android:textSize="24sp"
+                    android:textStyle="bold">
+
+                </ImageButton>
+
+                <ImageButton
+                    android:id="@+id/true_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_checked"
+                    android:textSize="18sp"
+                    android:textStyle="bold">
+
+                </ImageButton>
+
+            </LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/btn_double_prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:src="@drawable/ic_double_left"
                 android:textSize="24sp"
                 android:textStyle="bold">
 
             </ImageButton>
 
             <ImageButton
-                android:id="@+id/true_btn"
+                android:id="@+id/btn_prev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:src="@drawable/ic_checked"
-                android:textSize="18sp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/ic_left"
+                android:textSize="24sp"
                 android:textStyle="bold">
 
             </ImageButton>
 
-        </LinearLayout>
+            <ImageButton
+                android:id="@+id/btn_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginRight="50dp"
+                android:src="@drawable/ic_right"
+                android:textSize="24sp"
+                android:textStyle="bold">
 
+            </ImageButton>
 
-        <ImageButton
-            android:id="@+id/btn_double_prev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:src="@drawable/ic_double_left"
-            android:textSize="24sp"
-            android:textStyle="bold">
+            <ImageButton
+                android:id="@+id/btn_double_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:src="@drawable/ic_double_right"
+                android:textSize="24sp"
+                android:textStyle="bold">
 
-        </ImageButton>
+            </ImageButton>
 
-        <ImageButton
-            android:id="@+id/btn_prev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:src="@drawable/ic_left"
-            android:textSize="24sp"
-            android:textStyle="bold">
-
-        </ImageButton>
-
-        <ImageButton
-            android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginRight="50dp"
-            android:src="@drawable/ic_right"
-            android:textSize="24sp"
-            android:textStyle="bold">
-
-        </ImageButton>
-
-        <ImageButton
-            android:id="@+id/btn_double_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:src="@drawable/ic_double_right"
-            android:textSize="24sp"
-            android:textStyle="bold">
-
-        </ImageButton>
-
+        </FrameLayout>
 
     </LinearLayout>
 
@@ -124,32 +133,41 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/game_over"
-            android:textColor="@color/purple"
-            android:textSize="36sp"
-            android:textStyle="bold">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|top"
+                android:gravity="center_horizontal|top"
+                android:text="@string/game_over"
+                android:textColor="@color/purple"
+                android:textSize="36sp"
+                android:textStyle="bold">
 
-        </TextView>
+            </TextView>
 
-        <TextView
-            android:id="@+id/score_final"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/gold"
-            android:textSize="30sp">
+            <TextView
+                android:id="@+id/score_final"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/gold"
+                android:textSize="30sp">
 
-        </TextView>
+            </TextView>
 
-        <ImageButton
-            android:id="@+id/reset_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_reset">
+            <ImageButton
+                android:id="@+id/reset_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/ic_reset">
 
-        </ImageButton>
+            </ImageButton>
+        </FrameLayout>
 
 
     </LinearLayout>
