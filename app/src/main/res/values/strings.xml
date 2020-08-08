@@ -17,4 +17,6 @@
     <string name="cheat_txt">تقلب</string>
     <string name="sure_txt">آیا اطمینان دارید ؟</string>
     <string name="judgment_txt">تقلب کار خوبی نیست...</string>
+    <string name="edit_size">سایز سوال : </string>
+
 </resources>
