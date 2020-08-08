@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     android:orientation="vertical"
-    tools:context=".QuizActivity">
+    tools:context=".controller.QuizActivity">
 
     <LinearLayout
 
@@ -113,6 +113,7 @@
 
                 </ImageButton>
 
+
                 <ImageButton
                     android:id="@+id/btn_double_next"
                     android:layout_width="wrap_content"
@@ -126,7 +127,18 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/cheat_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/cheat_txt"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </Button>
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout

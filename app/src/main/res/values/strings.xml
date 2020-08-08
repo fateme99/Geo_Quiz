@@ -14,4 +14,7 @@
     <string name="question_asia">قاره ی آسیا در نیمکره ی جنوبی جهان است</string>
     <string name="score_text"> : امتیاز شما</string>
     <string name="game_over">بازی تمام شد </string>
+    <string name="cheat_txt">تقلب</string>
+    <string name="sure_txt">آیا اطمینان دارید ؟</string>
+    <string name="judgment_txt">تقلب کار خوبی نیست...</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.geo_quiz;
+package com.example.geo_quiz.model;
 
 import java.io.Serializable;
 
@@ -6,6 +6,15 @@ public class Question implements Serializable {
     private int mQuestionResId;
     private boolean mIsAnswerTrue;
     private boolean mdisable;
+    private boolean mIsCheat;
+
+    public boolean isCheat() {
+        return mIsCheat;
+    }
+
+    public void setCheat(boolean cheat) {
+        mIsCheat = cheat;
+    }
 
     public boolean isMdisable() {
         return mdisable;
@@ -35,6 +44,7 @@ public class Question implements Serializable {
         mQuestionResId = questionResId;
         mIsAnswerTrue = isAnswerTrue;
         mdisable=false;
+        mIsCheat=false;
     }
 
     public Question() {
