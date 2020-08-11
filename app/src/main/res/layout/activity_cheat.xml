@@ -11,6 +11,7 @@
     tools:context=".controller.CheatActivity">
 
     <TextView
+        android:id="@+id/sure_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
@@ -28,7 +29,7 @@
         tools:text="درست" />
 
     <Button
-        android:id="@+id/cheat_btn"
+        android:id="@+id/cheatInCheat_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"

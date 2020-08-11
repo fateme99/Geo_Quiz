@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -16,10 +17,13 @@ import android.widget.Toast;
 
 import com.example.geo_quiz.model.Question;
 import com.example.geo_quiz.R;
+import com.example.geo_quiz.model.Setting;
 
 import java.io.Serializable;
 
 public class QuizActivity extends AppCompatActivity {
+    private static final String TAG = "QuizActivity.size";
+    private Setting mSetting=new Setting();
     public static int request_code_cheat = 0;
     public static int request_code_setting = 1;
     public static final String EXTRA_ANSWER_QUESTION = "com.example.geo_quiz.answer_question";
@@ -72,7 +76,12 @@ public class QuizActivity extends AppCompatActivity {
         if (requestCode == request_code_cheat) {
             mQuestionsBank[mCurrentIndex].setCheat(data.getBooleanExtra(CheatActivity.EXTRA_IS_CHEATED, false));
         }
+        if (requestCode==request_code_setting){
+            mSetting= (Setting) data.getSerializableExtra(SettingActivity.EXTRA_SETTING_INFO);
+            setSizeOfAll(mSetting.getSize());
 
+
+        }
     }
 
     @Override
@@ -251,5 +260,14 @@ public class QuizActivity extends AppCompatActivity {
     public void setScore() {
         mScoreTextView.setText(mQuestionsBank.length + " / " + mScore + getString(R.string.score_text));
 
+    }
+    public  void setSizeOfAll(int size){
+        mQuestionTextView.setTextSize(size);
+        mCheatBtn.setTextSize(size);
+        mScoreTextView.setTextSize(size);
+        Intent intent=new Intent();
+        Serializable serializable=mSetting;
+        intent.putExtra(SettingActivity.EXTRA_SETTING_INFO,mSetting);
+        setResult(RESULT_OK,intent);
     }
 }

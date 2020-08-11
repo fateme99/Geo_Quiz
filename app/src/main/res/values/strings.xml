@@ -18,5 +18,9 @@
     <string name="sure_txt">آیا اطمینان دارید ؟</string>
     <string name="judgment_txt">تقلب کار خوبی نیست...</string>
     <string name="edit_size">سایز سوال : </string>
+    <string name="small_size">کوچک :</string>
+    <string name="meduim_size">متوسط :</string>
+    <string name="large_size">بزرگ :</string>
+    <string name="save_txt">ذخیره</string>
 
 </resources>
