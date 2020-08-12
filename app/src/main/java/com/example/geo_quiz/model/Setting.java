@@ -6,7 +6,7 @@ public class Setting implements Serializable {
 
     private int mSize;
     private String mBgColorName;
-    private boolean mHide_False,MHide_true,mHide_cheat,mHide_next,mHide_prev,mHide_first,mHide_last;
+    private boolean mHide_False, mHide_true,mHide_cheat,mHide_next,mHide_prev,mHide_first,mHide_last;
 
     public boolean isHide_False() {
         return mHide_False;
@@ -16,12 +16,12 @@ public class Setting implements Serializable {
         mHide_False = hide_False;
     }
 
-    public boolean isMHide_true() {
-        return MHide_true;
+    public boolean isHide_true() {
+        return mHide_true;
     }
 
-    public void setMHide_true(boolean MHide_true) {
-        this.MHide_true = MHide_true;
+    public void setHide_true(boolean hide_true) {
+        this.mHide_true = hide_true;
     }
 
     public boolean isHide_cheat() {

@@ -35,4 +35,5 @@
     <string name="hide_PrevBtn">دکمه ی قبلی :</string>
     <string name="hide_FirstBtn">دکمه ی اولی :</string>
     <string name="hide_LastBtn">دکمه ی آخری :</string>
+    <string name="discard_txt">کنسل</string>
 </resources>

@@ -74,8 +74,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/meduim_size"
                     android:layout_marginTop="20dp"
+                    android:text="@string/meduim_size"
                     android:textSize="20sp" />
 
                 <TextView
@@ -193,123 +193,149 @@
 
             <LinearLayout
                 android:layout_width="200dp"
-                android:gravity="center_horizontal"
                 android:layout_height="match_parent"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
+
                 <CheckBox
 
                     android:id="@+id/hide_trueBtn"
-                    android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:layout_marginTop="20dp"
+                    android:onClick="onCheckboxClicked" />
+
                 <CheckBox
                     android:id="@+id/hide_falseBtn"
-                    android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:layout_marginTop="15dp"
+                    android:onClick="onCheckboxClicked" />
+
                 <CheckBox
                     android:id="@+id/hide_cheatBtn"
-                    android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:layout_marginTop="15dp"
+                    android:onClick="onCheckboxClicked" />
+
                 <CheckBox
                     android:id="@+id/hide_nextBtn"
-                    android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:layout_marginTop="15dp"
+                    android:onClick="onCheckboxClicked" />
+
                 <CheckBox
                     android:id="@+id/hide_prevBtn"
-                    android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:layout_marginTop="15dp"
+                    android:onClick="onCheckboxClicked" />
+
                 <CheckBox
                     android:id="@+id/hide_firstBtn"
-                    android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:layout_marginTop="15dp"
+                    android:onClick="onCheckboxClicked" />
+
                 <CheckBox
                     android:id="@+id/hide_lastBtn"
-                    android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"/>
+                    android:layout_marginTop="15dp"
+                    android:onClick="onCheckboxClicked" />
 
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="200dp"
-                android:gravity="center_horizontal"
                 android:layout_height="match_parent"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_marginTop="20dp"
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:text="@string/hide_TrueBtn"
-                    android:layout_height="wrap_content" />
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textSize="20sp"
                     android:text="@string/hide_falseBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textSize="20sp"
                     android:text="@string/hide_CheatBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textSize="20sp"
                     android:text="@string/hide_NextBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textSize="20sp"
                     android:text="@string/hide_PrevBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textSize="20sp"
                     android:text="@string/hide_FirstBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:layout_marginTop="20dp"
-                    android:textSize="20sp"
-                    android:text="@string/hide_LastBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/hide_LastBtn"
+                    android:textSize="20sp" />
 
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/setting_save_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/save_txt"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/setting_save_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/save_txt"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/setting_discard_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="@string/discard_txt"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

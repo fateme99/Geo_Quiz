@@ -21,11 +21,11 @@ import com.example.geo_quiz.model.Setting;
 import java.io.Serializable;
 
 public class QuizActivity extends AppCompatActivity {
-    private static final String TAG = "QuizActivity.size";
     private Setting mSetting=new Setting();
     public static int request_code_cheat = 0;
     public static int request_code_setting = 1;
     public static final String EXTRA_ANSWER_QUESTION = "com.example.geo_quiz.answer_question";
+    public static final String EXTRA_SETTINGINFO ="com.example.geo_quiz.settingInfo";
     public static String mBankString = "";
     public static final String CURRENT_INDEX = "mCurrentIndex";
     public static final String SCORE_KEY = "score_key";
@@ -191,6 +191,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(QuizActivity.this, SettingActivity.class);
+                intent.putExtra(EXTRA_SETTINGINFO,mSetting);
                 startActivityForResult(intent, request_code_setting);
             }
         });
@@ -276,29 +277,42 @@ public class QuizActivity extends AppCompatActivity {
     public void setBackGroundColor(String name){
         if (name==null)
             return;
-        if (name.equals("lightRed_id"))
+        if (name.equals("lightRed"))
             mRootLayoout.setBackground(getDrawable(R.color.light_red));
-        else if (name.equals("lightBlue_id"))
+        else if (name.equals("lightBlue"))
             mRootLayoout.setBackground(getDrawable(R.color.light_blue));
-        else if (name.equals("lightGreen_id"))
+        else if (name.equals("lightGreen"))
             mRootLayoout.setBackground(getDrawable(R.color.light_green));
         else
             mRootLayoout.setBackground(getDrawable(R.color.white));
     }
     public void setHides(){
-        if (mSetting.isMHide_true())
+        if (mSetting.isHide_true())
             mTrueButton.setVisibility(View.GONE);
+        else
+            mFalseButton.setVisibility(View.VISIBLE);
         if (mSetting.isHide_False())
             mFalseButton.setVisibility(View.GONE);
+        else
+            mFalseButton.setVisibility(View.VISIBLE);
         if (mSetting.isHide_cheat())
             mCheatBtn.setVisibility(View.GONE);
+        else
+            mCheatBtn.setVisibility(View.VISIBLE);
         if (mSetting.isHide_next())
             mNextBtn.setVisibility(View.GONE);
+        else
+            mNextBtn.setVisibility(View.VISIBLE);
         if (mSetting.isHide_prev())
             mPrevBtn.setVisibility(View.GONE);
+        else
+            mPrevBtn.setVisibility(View.VISIBLE);
         if (mSetting.isHide_first())
             mFirstBtn.setVisibility(View.GONE);
+        else
+            mFirstBtn.setVisibility(View.VISIBLE);
         if (mSetting.isHide_last())
             mLastBtn.setVisibility(View.GONE);
+        else mLastBtn.setVisibility(View.VISIBLE);
     }
 }
