@@ -8,4 +8,9 @@
     <color name="black_color">#000000</color>
     <color name="purple">#9c3568</color>
     <color name="gold">#9c9c1f</color>
+    <color name="light_red">#ffcccb</color>
+    <color name="light_blue">#add8e6</color>
+    <color name="light_green">#90ee90</color>
+    <color name="white">#fff</color>
+
 </resources>

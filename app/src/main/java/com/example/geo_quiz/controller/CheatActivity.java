@@ -37,22 +37,13 @@ public class CheatActivity extends AppCompatActivity {
 
         }
         setContentView(R.layout.activity_cheat);
+
         mAnswer=getIntent().getBooleanExtra(QuizActivity.EXTRA_ANSWER_QUESTION,false);
         findViews();
         setListeners();
         mAnswerTextView.setText(mCheat_answer);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode!=RESULT_OK || data==null)
-            return;
-        if (requestCode==QuizActivity.request_code_cheat){
-            mSetting= (Setting) data.getSerializableExtra(SettingActivity.EXTRA_SETTING_INFO);
-            setSizeOfAll(mSetting.getSize());
-        }
-    }
 
     public void findViews(){
         mAnswerTextView=findViewById(R.id.answer_txtView);

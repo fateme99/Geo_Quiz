@@ -22,5 +22,17 @@
     <string name="meduim_size">متوسط :</string>
     <string name="large_size">بزرگ :</string>
     <string name="save_txt">ذخیره</string>
-
+    <string name="edit_bgColor">رنگ پشت صفحه :</string>
+    <string name="light_red"> قرمز روشن :</string>
+    <string name="light_blue">آبی روشن :</string>
+    <string name="light_green">سبز روشن :</string>
+    <string name="white">سفید :</string>
+    <string name="edit_showOrHide">عدم نمایش :</string>
+    <string name="hide_falseBtn"> دکمه ی نا درست :</string>
+    <string name="hide_TrueBtn">دکمه ی درست :</string>
+    <string name="hide_CheatBtn">دکمه ی تقلب :</string>
+    <string name="hide_NextBtn">دکمه ی بعدی :</string>
+    <string name="hide_PrevBtn">دکمه ی قبلی :</string>
+    <string name="hide_FirstBtn">دکمه ی اولی :</string>
+    <string name="hide_LastBtn">دکمه ی آخری :</string>
 </resources>

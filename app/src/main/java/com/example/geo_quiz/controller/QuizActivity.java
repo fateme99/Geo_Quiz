@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -33,10 +32,10 @@ public class QuizActivity extends AppCompatActivity {
     public static final String NUM_OF_ANSWER_KEY = "numOfAnswer_key";
     public static final String BANK_KEY = "bank_key";
     private Button mCheatBtn;
-    private ImageButton mFalseButton, mTrueButton, mNextBtn, mPrevBtn, mDoubleNext, mDoublePrev, mResetGame, mSettingBtn;
+    private ImageButton mFalseButton, mTrueButton, mNextBtn, mPrevBtn, mFirstBtn, mLastBtn, mResetGame, mSettingBtn;
     private TextView mQuestionTextView, mScoreTextView, mFinalScore;
     private int mCurrentIndex = 0, mScore = 0, mNumOfAnswers = 0;
-    private LinearLayout mMainLayout, mScoreLayour;
+    private LinearLayout mMainLayout, mScoreLayour,mRootLayoout;
     private Question[] mQuestionsBank = {
             new Question(R.string.question_tehran, true)
             , new Question(R.string.question_oceans, true)
@@ -76,9 +75,11 @@ public class QuizActivity extends AppCompatActivity {
         if (requestCode == request_code_cheat) {
             mQuestionsBank[mCurrentIndex].setCheat(data.getBooleanExtra(CheatActivity.EXTRA_IS_CHEATED, false));
         }
-        if (requestCode==request_code_setting){
+        else if (requestCode==request_code_setting){
             mSetting= (Setting) data.getSerializableExtra(SettingActivity.EXTRA_SETTING_INFO);
+            setBackGroundColor(mSetting.getBgColorName());
             setSizeOfAll(mSetting.getSize());
+            setHides();
 
 
         }
@@ -97,13 +98,14 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void findViews() {
+        mRootLayoout=findViewById(R.id.root_layout_quiz);
         mFalseButton = findViewById(R.id.false_btn);
         mTrueButton = findViewById(R.id.true_btn);
         mQuestionTextView = findViewById(R.id.question_text);
         mNextBtn = findViewById(R.id.btn_next);
         mPrevBtn = findViewById(R.id.btn_prev);
-        mDoubleNext = findViewById(R.id.btn_double_next);
-        mDoublePrev = findViewById(R.id.btn_double_prev);
+        mFirstBtn = findViewById(R.id.btn_double_next);
+        mLastBtn = findViewById(R.id.btn_double_prev);
         mScoreTextView = findViewById(R.id.score_text);
         mMainLayout = findViewById(R.id.main_layout);
         mScoreLayour = findViewById(R.id.score_layout);
@@ -147,13 +149,13 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        mDoubleNext.setOnClickListener(new View.OnClickListener() {
+        mFirstBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setQuestionText(mQuestionsBank.length - 1);
             }
         });
-        mDoublePrev.setOnClickListener(new View.OnClickListener() {
+        mLastBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setQuestionText(mQuestionsBank.length);
@@ -262,12 +264,41 @@ public class QuizActivity extends AppCompatActivity {
 
     }
     public  void setSizeOfAll(int size){
+        if (size==0)
+            return;
         mQuestionTextView.setTextSize(size);
         mCheatBtn.setTextSize(size);
         mScoreTextView.setTextSize(size);
         Intent intent=new Intent();
-        Serializable serializable=mSetting;
         intent.putExtra(SettingActivity.EXTRA_SETTING_INFO,mSetting);
         setResult(RESULT_OK,intent);
+    }
+    public void setBackGroundColor(String name){
+        if (name==null)
+            return;
+        if (name.equals("lightRed_id"))
+            mRootLayoout.setBackground(getDrawable(R.color.light_red));
+        else if (name.equals("lightBlue_id"))
+            mRootLayoout.setBackground(getDrawable(R.color.light_blue));
+        else if (name.equals("lightGreen_id"))
+            mRootLayoout.setBackground(getDrawable(R.color.light_green));
+        else
+            mRootLayoout.setBackground(getDrawable(R.color.white));
+    }
+    public void setHides(){
+        if (mSetting.isMHide_true())
+            mTrueButton.setVisibility(View.GONE);
+        if (mSetting.isHide_False())
+            mFalseButton.setVisibility(View.GONE);
+        if (mSetting.isHide_cheat())
+            mCheatBtn.setVisibility(View.GONE);
+        if (mSetting.isHide_next())
+            mNextBtn.setVisibility(View.GONE);
+        if (mSetting.isHide_prev())
+            mPrevBtn.setVisibility(View.GONE);
+        if (mSetting.isHide_first())
+            mFirstBtn.setVisibility(View.GONE);
+        if (mSetting.isHide_last())
+            mLastBtn.setVisibility(View.GONE);
     }
 }
