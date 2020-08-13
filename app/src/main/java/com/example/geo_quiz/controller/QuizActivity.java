@@ -77,9 +77,8 @@ public class QuizActivity extends AppCompatActivity {
         }
         else if (requestCode==request_code_setting){
             mSetting= (Setting) data.getSerializableExtra(SettingActivity.EXTRA_SETTING_INFO);
-            setBackGroundColor(mSetting.getBgColorName());
-            setSizeOfAll(mSetting.getSize());
-            setHides();
+            setDefaultValue();
+
 
 
         }
@@ -184,6 +183,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(QuizActivity.this, CheatActivity.class);
                 intent.putExtra(EXTRA_ANSWER_QUESTION, mQuestionsBank[mCurrentIndex].isAnswerTrue());
+                intent.putExtra(EXTRA_SETTINGINFO,mSetting);
                 startActivityForResult(intent, request_code_cheat);
             }
         });
@@ -270,9 +270,7 @@ public class QuizActivity extends AppCompatActivity {
         mQuestionTextView.setTextSize(size);
         mCheatBtn.setTextSize(size);
         mScoreTextView.setTextSize(size);
-        Intent intent=new Intent();
-        intent.putExtra(SettingActivity.EXTRA_SETTING_INFO,mSetting);
-        setResult(RESULT_OK,intent);
+
     }
     public void setBackGroundColor(String name){
         if (name==null)
@@ -314,5 +312,11 @@ public class QuizActivity extends AppCompatActivity {
         if (mSetting.isHide_last())
             mLastBtn.setVisibility(View.GONE);
         else mLastBtn.setVisibility(View.VISIBLE);
+    }
+
+    public void setDefaultValue(){
+        setBackGroundColor(mSetting.getBgColorName());
+        setSizeOfAll(mSetting.getSize());
+        setHides();
     }
 }

@@ -1,5 +1,8 @@
 package com.example.geo_quiz.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
 public class Setting implements Serializable {
@@ -79,4 +82,6 @@ public class Setting implements Serializable {
     public void setSize(int size) {
         mSize = size;
     }
+
+
 }

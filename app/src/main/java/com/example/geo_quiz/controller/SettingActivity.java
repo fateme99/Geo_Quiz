@@ -78,7 +78,7 @@ public class SettingActivity extends AppCompatActivity {
                     mSetting.setHide_last(true);
                 else
                     mSetting.setHide_last(false);
-                
+
         }
     }
     public void findViews(){
@@ -208,6 +208,9 @@ public class SettingActivity extends AppCompatActivity {
             mHide_first.setChecked(true);
         if (mSetting.isHide_last())
             mHide_last.setChecked(true);
+
+    }
+    public void setSizeOfAll(int size){
 
     }
 }
