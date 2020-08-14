@@ -38,6 +38,8 @@
                     android:id="@+id/setting_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="40dp"
                     android:layout_gravity="right|top"
                     android:src="@drawable/ic_setting" />
 
@@ -48,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="100dp"
                     android:layout_marginBottom="20dp"
                     android:text=""
                     android:textColor="@android:color/background_dark"
@@ -58,6 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -65,7 +68,7 @@
                         android:id="@+id/false_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginRight="10dp"
                         android:src="@drawable/ic_close"
                         android:text="@string/btn_false_text"
                         android:textSize="24sp"
@@ -77,7 +80,7 @@
                         android:id="@+id/true_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:src="@drawable/ic_checked"
                         android:textSize="18sp"
                         android:textStyle="bold">
