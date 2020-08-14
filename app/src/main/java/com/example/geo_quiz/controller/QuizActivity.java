@@ -31,6 +31,7 @@ public class QuizActivity extends AppCompatActivity {
     public static final String SCORE_KEY = "score_key";
     public static final String NUM_OF_ANSWER_KEY = "numOfAnswer_key";
     public static final String BANK_KEY = "bank_key";
+    public static final String SETTING_KEY="setting_key";
     private Button mCheatBtn;
     private ImageButton mFalseButton, mTrueButton, mNextBtn, mPrevBtn, mFirstBtn, mLastBtn, mResetGame, mSettingBtn;
     private TextView mQuestionTextView, mScoreTextView, mFinalScore;
@@ -52,6 +53,7 @@ public class QuizActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
 
             mQuestionsBank = (Question[]) savedInstanceState.getSerializable(BANK_KEY);
+            mSetting= (Setting) savedInstanceState.getSerializable(SETTING_KEY);
 
             mScore = savedInstanceState.getInt(SCORE_KEY, 0);
             mNumOfAnswers = savedInstanceState.getInt(NUM_OF_ANSWER_KEY, 0);
@@ -63,6 +65,7 @@ public class QuizActivity extends AppCompatActivity {
         setListeners();
         setQuestionText(mCurrentIndex);
         setScore();
+        setDefaultValue();
         theEnd();
     }
 
@@ -92,6 +95,8 @@ public class QuizActivity extends AppCompatActivity {
         outState.putInt(NUM_OF_ANSWER_KEY, mNumOfAnswers);
         Serializable serializable = mQuestionsBank;
         outState.putSerializable(BANK_KEY, serializable);
+        Serializable setting=mSetting;
+        outState.putSerializable(SETTING_KEY,setting);
 
 
     }
