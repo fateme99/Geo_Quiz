@@ -230,6 +230,8 @@ public class QuizActivity extends AppCompatActivity {
                 toastTextView.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_close, 0);
                 toast.show();
                 mQuestionTextView.setTextColor(getResources().getColor(R.color.false_toast_bg));
+                if (mSetting.isNegAnswer() && mScore>0)
+                    mScore--;
             }
         }
 

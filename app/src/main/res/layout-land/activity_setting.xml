@@ -316,6 +316,30 @@
             </LinearLayout>
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:id="@+id/neg_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="60dp"
+                android:layout_height="wrap_content">
+
+            </CheckBox>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/edit_negAnswer"
+                android:layout_marginTop="40dp"
+
+                android:textSize="20sp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

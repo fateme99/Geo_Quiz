@@ -7,9 +7,18 @@ import java.io.Serializable;
 
 public class Setting implements Serializable {
 
+    private boolean mNegAnswer=false;
     private int mSize;
     private String mBgColorName;
     private boolean mHide_False, mHide_true,mHide_cheat,mHide_next,mHide_prev,mHide_first,mHide_last;
+
+    public boolean isNegAnswer() {
+        return mNegAnswer;
+    }
+
+    public void setNegAnswer(boolean negAnswer) {
+        mNegAnswer = negAnswer;
+    }
 
     public boolean isHide_False() {
         return mHide_False;

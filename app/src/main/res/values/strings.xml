@@ -36,4 +36,5 @@
     <string name="hide_FirstBtn">دکمه ی اولی :</string>
     <string name="hide_LastBtn">دکمه ی آخری :</string>
     <string name="discard_txt">کنسل</string>
+    <string name="edit_negAnswer">فعال کردن قابلیت نمره منفی :</string>
 </resources>

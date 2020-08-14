@@ -18,7 +18,8 @@ public class SettingActivity extends AppCompatActivity {
     public static final String EXTRA_SETTING_INFO = "com.example.geo_quiz.settingInfo";
     private RadioButton mSmallRadioBtn,mMeduimRadioBtn,mLargeRadioBtn,mLightRedBtn,mLightBlueBtn
             ,mLightGreenBtn,mWhiteBtn;
-    private CheckBox mHide_true,mHide_false,mHide_cheat,mHide_next,mHide_prev,mHide_first,mHide_last;
+    private CheckBox mHide_true,mHide_false,mHide_cheat,mHide_next,mHide_prev,mHide_first,mHide_last
+            ,mNegBtn;
     private TextView mQuestionTextView;
     private Setting mSetting;
     private Button mSaveBtn,mDiscardBtn;
@@ -78,6 +79,13 @@ public class SettingActivity extends AppCompatActivity {
                     mSetting.setHide_last(true);
                 else
                     mSetting.setHide_last(false);
+                break;
+            case R.id.neg_radio_btn:
+                if (checked)
+                    mSetting.setNegAnswer(true);
+                else
+                    mSetting.setNegAnswer(false);
+                break;
 
         }
     }
@@ -99,6 +107,7 @@ public class SettingActivity extends AppCompatActivity {
         mHide_prev=findViewById(R.id.hide_prevBtn);
         mHide_first=findViewById(R.id.hide_firstBtn);
         mHide_last=findViewById(R.id.hide_lastBtn);
+        mNegBtn=findViewById(R.id.neg_radio_btn);
     }
     public void setListeners(){
         mDiscardBtn.setOnClickListener(new View.OnClickListener() {
@@ -140,7 +149,6 @@ public class SettingActivity extends AppCompatActivity {
                 mSetting.setBgColorName("white");
             }
         });
-
         mLargeRadioBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -208,6 +216,8 @@ public class SettingActivity extends AppCompatActivity {
             mHide_first.setChecked(true);
         if (mSetting.isHide_last())
             mHide_last.setChecked(true);
+        if (mSetting.isNegAnswer())
+            mNegBtn.setChecked(true);
 
     }
     public void setSizeOfAll(int size){
