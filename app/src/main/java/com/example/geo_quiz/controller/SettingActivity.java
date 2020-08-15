@@ -31,7 +31,7 @@ public class SettingActivity extends AppCompatActivity {
         findViews();
         setListeners();
         mSetting=new Setting();
-        mSetting= (Setting) getIntent().getSerializableExtra(QuizActivity.EXTRA_SETTINGINFO);
+        mSetting= (Setting) getIntent().getSerializableExtra(QuizFragment.EXTRA_SETTINGINFO);
         setDefaultValue();
     }
     public void onCheckboxClicked(View view) {

@@ -37,4 +37,6 @@
     <string name="hide_LastBtn">دکمه ی آخری :</string>
     <string name="discard_txt">کنسل</string>
     <string name="edit_negAnswer">فعال کردن قابلیت نمره منفی :</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
