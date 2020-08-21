@@ -367,6 +367,13 @@
                 android:text="@string/discard_txt"
                 />
         </LinearLayout>
+        <TextView
+            android:id="@+id/logout_txtView"
+            android:layout_width="wrap_content"
+            android:text="خروج"
+            android:layout_height="wrap_content">
+
+        </TextView>
 
     </LinearLayout>
 

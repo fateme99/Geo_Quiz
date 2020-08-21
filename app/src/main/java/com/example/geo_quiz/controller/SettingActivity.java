@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.geo_quiz.R;
 import com.example.geo_quiz.model.Setting;
+import com.example.geo_quiz.model.User;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -20,8 +21,9 @@ public class SettingActivity extends AppCompatActivity {
             ,mLightGreenBtn,mWhiteBtn;
     private CheckBox mHide_true,mHide_false,mHide_cheat,mHide_next,mHide_prev,mHide_first,mHide_last
             ,mNegBtn;
-    private TextView mQuestionTextView;
+    private TextView mQuestionTextView,mLogout;
     private Setting mSetting;
+    private User mUser;
     private Button mSaveBtn,mDiscardBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class SettingActivity extends AppCompatActivity {
         setListeners();
         mSetting=new Setting();
         mSetting= (Setting) getIntent().getSerializableExtra(QuizFragment.EXTRA_SETTINGINFO);
+        mUser= (User) getIntent().getSerializableExtra(LoginActivity.EXTRA_USERINFO);
         setDefaultValue();
     }
     public void onCheckboxClicked(View view) {
@@ -90,6 +93,7 @@ public class SettingActivity extends AppCompatActivity {
         }
     }
     public void findViews(){
+        mLogout=findViewById(R.id.logout_txtView);
         mLargeRadioBtn=findViewById(R.id.larg_radioBtn);
         mSmallRadioBtn=findViewById(R.id.small_radioBtn);
         mMeduimRadioBtn=findViewById(R.id.meduim_radioBtn);
@@ -110,6 +114,15 @@ public class SettingActivity extends AppCompatActivity {
         mNegBtn=findViewById(R.id.neg_radio_btn);
     }
     public void setListeners(){
+        mLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SettingActivity.this,LoginActivity.class);
+                intent.putExtra(LoginActivity.EXTRA_USERINFO,mUser);
+                startActivity(intent);
+                finish();
+            }
+        });
         mDiscardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

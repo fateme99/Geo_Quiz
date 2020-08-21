@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.geo_quiz.R;
 import com.example.geo_quiz.model.Question;
 import com.example.geo_quiz.model.Setting;
+import com.example.geo_quiz.model.User;
 
 import java.io.Serializable;
 
@@ -29,7 +30,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class QuizFragment extends Fragment {
 
-    private Chronometer mChronometer;
+    private User mUser;
     private Setting mSetting=new Setting();
     public static int request_code_cheat = 0;
     public static int request_code_setting = 1;
@@ -43,7 +44,7 @@ public class QuizFragment extends Fragment {
     public static final String SETTING_KEY="setting_key";
     private Button mCheatBtn;
     private ImageButton mFalseButton, mTrueButton, mNextBtn, mPrevBtn, mFirstBtn, mLastBtn, mResetGame, mSettingBtn;
-    private TextView mQuestionTextView, mScoreTextView, mFinalScore;
+    private TextView mQuestionTextView, mScoreTextView, mFinalScore,mUserShow;
     private int mCurrentIndex = 0, mScore = 0, mNumOfAnswers = 0;
     private LinearLayout mMainLayout, mScoreLayour,mRootLayoout;
     private Question[] mQuestionsBank = {
@@ -63,6 +64,7 @@ public class QuizFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mUser= (User) getActivity().getIntent().getSerializableExtra(LoginActivity.EXTRA_USERINFO);
 
     }
 
@@ -89,7 +91,7 @@ public class QuizFragment extends Fragment {
         setScore();
         setDefaultValue();
         theEnd();
-
+        setUserName();
 
         return view;
     }
@@ -128,7 +130,7 @@ public class QuizFragment extends Fragment {
     }
 
     public void findViews(View view) {
-        mChronometer=view.findViewById(R.id.chronometer);
+        mUserShow=view.findViewById(R.id.userNamehello);
         mRootLayoout=view.findViewById(R.id.root_layout_quiz);
         mFalseButton = view.findViewById(R.id.false_btn);
         mTrueButton = view.findViewById(R.id.true_btn);
@@ -225,6 +227,7 @@ public class QuizFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), SettingActivity.class);
                 intent.putExtra(EXTRA_SETTINGINFO,mSetting);
+                intent.putExtra(LoginActivity.EXTRA_USERINFO,mUser);
                 startActivityForResult(intent, request_code_setting);
             }
         });
@@ -353,5 +356,12 @@ public class QuizFragment extends Fragment {
         setBackGroundColor(mSetting.getBgColorName());
         setSizeOfAll(mSetting.getSize());
         setHides();
+    }
+    public void setUserName(){
+        if (mUser==null)
+            return;
+        else {
+            mUserShow.setText(mUser.getUserName());
+        }
     }
 }
