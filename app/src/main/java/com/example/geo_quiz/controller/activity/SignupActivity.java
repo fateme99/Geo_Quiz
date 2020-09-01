@@ -1,4 +1,4 @@
-package com.example.geo_quiz.controller;
+package com.example.geo_quiz.controller.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,8 +12,6 @@ import com.example.geo_quiz.R;
 import com.example.geo_quiz.model.User;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.io.Serializable;
 
 public class SignupActivity extends AppCompatActivity {
 

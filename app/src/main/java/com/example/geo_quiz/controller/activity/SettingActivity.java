@@ -1,4 +1,4 @@
-package com.example.geo_quiz.controller;
+package com.example.geo_quiz.controller.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.geo_quiz.R;
+import com.example.geo_quiz.controller.fragment.QuizFragment;
 import com.example.geo_quiz.model.Setting;
 import com.example.geo_quiz.model.User;
 

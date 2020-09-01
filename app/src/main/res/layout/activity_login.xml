@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".controller.LoginActivity">
+    tools:context=".controller.activity.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,6 +72,7 @@
                     android:layout_marginTop="16dp"
                     android:text="تایید" />
                 <Button
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:id="@+id/signUp_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

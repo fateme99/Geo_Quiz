@@ -1,4 +1,4 @@
-package com.example.geo_quiz.controller;
+package com.example.geo_quiz.controller.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,16 +12,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.geo_quiz.R;
+import com.example.geo_quiz.controller.activity.CheatActivity;
+import com.example.geo_quiz.controller.activity.LoginActivity;
+import com.example.geo_quiz.controller.activity.SettingActivity;
 import com.example.geo_quiz.model.Question;
 import com.example.geo_quiz.model.Setting;
 import com.example.geo_quiz.model.User;
+import com.example.geo_quiz.repository.QuestionRepository;
 
 import java.io.Serializable;
 
@@ -47,15 +50,10 @@ public class QuizFragment extends Fragment {
     private TextView mQuestionTextView, mScoreTextView, mFinalScore,mUserShow;
     private int mCurrentIndex = 0, mScore = 0, mNumOfAnswers = 0;
     private LinearLayout mMainLayout, mScoreLayour,mRootLayoout;
-    private Question[] mQuestionsBank = {
-            new Question(R.string.question_tehran, true)
-            , new Question(R.string.question_oceans, true)
-            , new Question(R.string.question_middle_east, false)
-            , new Question(R.string.question_australia, false)
-            , new Question(R.string.question_egypt, true)
-            , new Question(R.string.question_america, false)
-            , new Question(R.string.question_asia, false)
-    };
+
+    private QuestionRepository mQuestionRepository=QuestionRepository.getsInstance();
+    private Question[] mQuestionsBank= mQuestionRepository.getQuestions().toArray(new Question[0]);
+
 
     public QuizFragment() {
         // Required empty public constructor

@@ -1,4 +1,4 @@
-package com.example.geo_quiz.controller;
+package com.example.geo_quiz.controller.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     if (mUser.getUserName().equals(mUsername.getText().toString())  &&  mUser.getPassWord().equals(mPassword.getText().toString())){
                         Snackbar.make(mPasswordForm,"ورود موفق",Snackbar.LENGTH_LONG).show();
-                        final Intent intent=new Intent(LoginActivity.this,QuizActivity.class);
+                        final Intent intent=new Intent(LoginActivity.this, QuizActivity.class);
                         intent.putExtra(EXTRA_USERINFO,mUser);
                         Handler handler=new Handler();
                         handler.postDelayed(new Runnable() {

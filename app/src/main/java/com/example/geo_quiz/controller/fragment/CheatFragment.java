@@ -1,4 +1,4 @@
-package com.example.geo_quiz.controller;
+package com.example.geo_quiz.controller.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;

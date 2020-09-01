@@ -1,8 +1,11 @@
 package com.example.geo_quiz.model;
 
 import java.io.Serializable;
+import java.util.Random;
+import java.util.UUID;
 
 public class Question implements Serializable {
+    private UUID mId;
     private int mQuestionResId;
     private boolean mIsAnswerTrue;
     private boolean mdisable;
@@ -45,6 +48,11 @@ public class Question implements Serializable {
         mIsAnswerTrue = isAnswerTrue;
         mdisable=false;
         mIsCheat=false;
+        mId=UUID.randomUUID();
+    }
+
+    public UUID getId() {
+        return mId;
     }
 
     public Question() {
