@@ -10,14 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".controller.activity.Quiz_list_itemActivity"></activity>
-        <activity android:name=".controller.activity.Quiz_list_Activity" />
-        <activity android:name=".controller.activity.SingleFragmentActivity" />
-        <activity android:name=".controller.activity.QuizActivity">
+        <activity android:name=".controller.activity.Quiz_list_Activity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".controller.activity.SingleFragmentActivity" />
+        <activity android:name=".controller.activity.QuizActivity">
+
         </activity>
         <activity android:name=".controller.activity.SignupActivity" />
         <activity android:name=".controller.activity.SettingActivity" />

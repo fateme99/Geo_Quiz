@@ -27,6 +27,7 @@ import com.example.geo_quiz.model.User;
 import com.example.geo_quiz.repository.QuestionRepository;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -51,8 +52,8 @@ public class QuizFragment extends Fragment {
     private int mCurrentIndex = 0, mScore = 0, mNumOfAnswers = 0;
     private LinearLayout mMainLayout, mScoreLayour,mRootLayoout;
 
-    private QuestionRepository mQuestionRepository=QuestionRepository.getsInstance();
-    private Question[] mQuestionsBank= mQuestionRepository.getQuestions().toArray(new Question[0]);
+    private QuestionRepository mQuestionRepository;
+    private Question[] mQuestionsBank;
 
 
     public QuizFragment() {
@@ -62,7 +63,11 @@ public class QuizFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mQuestionRepository=QuestionRepository.getsInstance();
+        mQuestionsBank= mQuestionRepository.getQuestions().toArray(new Question[0]);
         mUser= (User) getActivity().getIntent().getSerializableExtra(LoginActivity.EXTRA_USERINFO);
+        UUID uuid = (UUID) getActivity().getIntent().getSerializableExtra(Quiz_listFragment.EXTRA_QUIESTION_ID);
+        setCurrentIndex(uuid);
 
     }
 
@@ -360,6 +365,13 @@ public class QuizFragment extends Fragment {
             return;
         else {
             mUserShow.setText(mUser.getUserName());
+        }
+    }
+    private void setCurrentIndex(UUID uuid){
+        for (int i = 0; i <mQuestionsBank.length ; i++) {
+            if (mQuestionsBank[i].getId().equals(uuid)){
+                mCurrentIndex=i;
+            }
         }
     }
 }
