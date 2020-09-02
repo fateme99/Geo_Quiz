@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".controller.fragment.Quiz_List_ItemFragment">
+
+    <TextView
+        android:id="@+id/txtView_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/checkbox_is_cheated" />
+    <TextView
+        android:id="@+id/txtView_answer"
+        android:layout_below="@+id/txtView_question"
+        android:layout_alignParentLeft="true"
+        android:textSize="24sp"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@+id/checkbox_is_cheated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_is_cheated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#E48484" />
+
+
+
+</RelativeLayout>

@@ -14,14 +14,5 @@ public class CheatActivity extends SingleFragmentActivity {
         return new CheatFragment();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.fragment_activity);
-
-
-
-    }
 
 }
